@@ -31,7 +31,7 @@
 			<fieldset name="basic">
                 <field name="selected_tags" type="tag" label="JTAG" description="JTAG_DESC" mode="ajax"  multiple="true" />
 				
-				<field name="content_types" type="sql" label="Content Types" description="Limit tagged items to specified content types" query="SELECT type_alias AS value, type_title FROM #__content_types" value_field="type_title" multiple="multiple" /> 
+				<field name="content_types" type="sql" label="Content Types" description="Limit tagged items to specified content types" query="SELECT type_id AS value, type_title FROM #__content_types" value_field="type_title" multiple="multiple" /> 
 				
 				<field
 					name="maximum"
