@@ -56,7 +56,10 @@ abstract class ModTagsselectedHelper
 			return $results = false;
 		}
 		
-		$query=$tagsHelper->getTagItemsQuery($tagsToMatch, $contentTypes, $includeChildren, $orderByOption, $orderDir, $matchLogic, $languageFilter = 'all', $stateFilter = '0,1');
+		
+		
+		//$query=$tagsHelper->getTagItemsQuery($tagsToMatch, $contentTypes, $includeChildren, $orderByOption, $orderDir, $matchLogic, $languageFilter = 'all', $stateFilter = '0,1');
+		$query=$tagsHelper->getTagItemsQuery($tagsToMatch, $typesr = null, $includeChildren = false, $orderByOption = 'c.core_title', $orderDir = 'ASC',$anyOrAll = true, $languageFilter = 'all', $stateFilter = '0,1');
 		$db->setQuery($query, 0, $maximum);
 		$results = $db->loadObjectList();
 
