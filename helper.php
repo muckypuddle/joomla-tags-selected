@@ -35,8 +35,8 @@ abstract class ModTagsselectedHelper
 		// Get module parameters
 		$selectedTags = $params->get('selected_tags');
 		$contentTypes = $params->get('content_types');
-		$includeChildren = boolval($params->get('include_children'));
-		$matchLogic = boolval($params->get('match_logic'));
+		$includeChildren = !!$params->get('include_children');
+		$matchLogic = !!$params->get('match_logic');
 		$orderByOption = $params->get('order_by_option');
 		$orderDir = $params->get('order_dir');
 			
