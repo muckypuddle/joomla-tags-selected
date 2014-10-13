@@ -30,7 +30,9 @@
 		<fields name="params">
 			<fieldset name="basic">
                 <field name="selected_tags" type="tag" label="JTAG" description="JTAG_DESC" mode="ajax"  multiple="true" />
-				<field name="content_types" type="sql" label="Content Types" query="SELECT type_alias AS value, type_title FROM #__content_types" value_field="type_title" multiple="multiple" /> 
+				
+				<field name="content_types" type="sql" label="Content Types" description="Limit tagged items to specified content types" query="SELECT type_alias AS value, type_title FROM #__content_types" value_field="type_title" multiple="multiple" /> 
+				
 				<field
 					name="maximum"
 					type="integer"
@@ -40,6 +42,27 @@
 					step="1"
 					label="MOD_TAGS_SELECTED_MAX_LABEL"
 					description="MOD_TAGS_SELECTED_MAX_DESC">
+				</field>
+				
+				<field name="include_children" type="radio" default="0" label="Include Children?" description="Specify whether to include results from child tags of those selected">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				
+				<field name="match_logic" type="radio" default="0" label="Include Children?" description="Specify whether results need to match any tag, or all tags">
+					<option value="1">Any Tag</option>
+					<option value="0">All Tags</option>
+				</field>
+				
+				<field name="order_by_option" type="list" default="c.core_title" label="Order" description="Select column to order by">
+					<option value="c.core_title">Title</option>
+					<option value="c.core_created_time">Creation Date</option>
+					<option value="c.core_modified_time">Modification Date</option>
+				</field>				
+				
+				<field name="order_dir" type="radio" default="ASC" label="Order Direction" description="Select ordering column direction">
+					<option value="ASC">Ascending</option>
+					<option value="DESC">Descending</option>
 				</field>
 			</fieldset>
 			<fieldset

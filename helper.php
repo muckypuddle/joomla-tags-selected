@@ -31,7 +31,15 @@ abstract class ModTagsselectedHelper
 		$view       = $app->input->get('view');
 		$prefix     = $option . '.' . $view;
 		$id         = (array) $app->input->getObject('id');
+		
+		// Get module parameters
 		$selectedTags = $params->get('selected_tags');
+		$contentTypes = $params->get('content_types');
+		$includeChildren = boolval($params->get('include_children'));
+		$matchLogic = boolval($params->get('match_logic'));
+		$orderByOption = $params->get('order_by_option');
+		$orderDir = $params->get('order_dir');
+			
 		// Strip off any slug data.
 		foreach ($id as $id)
 		{
@@ -42,24 +50,22 @@ abstract class ModTagsselectedHelper
 			}
 		}
 
-			$tagsToMatch = $selectedTags;
-			if (!$tagsToMatch || is_null($tagsToMatch))
-			{
-				return $results = false;
-			}
-
-			
-			$query=$tagsHelper->getTagItemsQuery($tagsToMatch, $typesr = null, $includeChildren = false, $orderByOption = 'c.core_title', $orderDir = 'ASC',$anyOrAll = true, $languageFilter = 'all', $stateFilter = '0,1');
-			$db->setQuery($query, 0, $maximum);
-			$results = $db->loadObjectList();
-
-			foreach ($results as $result)
-			{
-				$explodedAlias = explode('.', $result->type_alias);
-				$result->link = 'index.php?option=' . $explodedAlias[0] . '&view=' . $explodedAlias[1] . '&id=' . $result->content_item_id . '-' . $result->core_alias;
-			}
-
-			return $results;
+		$tagsToMatch = $selectedTags;
+		if (!$tagsToMatch || is_null($tagsToMatch))
+		{
+			return $results = false;
+		}
 		
+		$query=$tagsHelper->getTagItemsQuery($tagsToMatch, $contentTypes, $includeChildren, $orderByOption, $orderDir, $matchLogic, $languageFilter = 'all', $stateFilter = '0,1');
+		$db->setQuery($query, 0, $maximum);
+		$results = $db->loadObjectList();
+
+		foreach ($results as $result)
+		{
+			$explodedAlias = explode('.', $result->type_alias);
+			$result->link = 'index.php?option=' . $explodedAlias[0] . '&view=' . $explodedAlias[1] . '&id=' . $result->content_item_id . '-' . $result->core_alias;
+		}
+
+		return $results;	
 	}
 }
