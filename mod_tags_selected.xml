@@ -29,17 +29,7 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field
-                    name="selected_tag"
-                    type="sql"
-                    query="SELECT id, title AS title FROM `#__tags` WHERE published=1 AND title!='ROOT'"
-                    label= "MOD_TAGS_SELECTED_TAG_LABEL"
-                    key_field="id"
-                    value_field="title"
-                    description = "MOD_TAGS_SELECTED_TAG_DESC" >
-                   
-                </field>
-                <field name="tags" type="tag" label="JTAG" description="JTAG_DESC" mode="ajax" class="inputbox span12 small" multiple="true" />
+                <field name="selected_tags" type="tag" label="JTAG" description="JTAG_DESC" mode="ajax"  multiple="true" />
 				<field
 					name="maximum"
 					type="integer"

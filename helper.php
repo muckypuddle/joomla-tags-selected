@@ -31,7 +31,7 @@ abstract class ModTagsselectedHelper
 		$view       = $app->input->get('view');
 		$prefix     = $option . '.' . $view;
 		$id         = (array) $app->input->getObject('id');
-		$selectedTag = $params->get('selected_tag');
+		$selectedTags = $params->get('selected_tags');
 		// Strip off any slug data.
 		foreach ($id as $id)
 		{
@@ -42,7 +42,7 @@ abstract class ModTagsselectedHelper
 			}
 		}
 
-			$tagsToMatch = $selectedTag;
+			$tagsToMatch = $selectedTags;
 			if (!$tagsToMatch || is_null($tagsToMatch))
 			{
 				return $results = false;
