@@ -39,6 +39,7 @@
                     description = "MOD_TAGS_SELECTED_TAG_DESC" >
                    
                 </field>
+                <field name="tags" type="tag" label="JTAG" description="JTAG_DESC" mode="ajax" class="inputbox span12 small" multiple="true" />
 				<field
 					name="maximum"
 					type="integer"
