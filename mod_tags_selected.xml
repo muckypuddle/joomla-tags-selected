@@ -30,6 +30,7 @@
 		<fields name="params">
 			<fieldset name="basic">
                 <field name="selected_tags" type="tag" label="JTAG" description="JTAG_DESC" mode="ajax"  multiple="true" />
+				<field name="content_types" type="sql" label="Content Types" query="SELECT type_alias AS value, type_title FROM #__content_types" value_field="type_title" multiple="multiple" /> 
 				<field
 					name="maximum"
 					type="integer"
@@ -40,7 +41,6 @@
 					label="MOD_TAGS_SELECTED_MAX_LABEL"
 					description="MOD_TAGS_SELECTED_MAX_DESC">
 				</field>
-				
 			</fieldset>
 			<fieldset
 				name="advanced">
