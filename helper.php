@@ -39,7 +39,7 @@ abstract class ModTagsselectedHelper
 		$matchLogic = !!$params->get('match_logic');
 		$orderByOption = $params->get('order_by_option');
 		$orderDir = $params->get('order_dir');
-		var_dump($contentTypes);
+
 		// Strip off any slug data.
 		foreach ($id as $id)
 		{
@@ -56,15 +56,10 @@ abstract class ModTagsselectedHelper
 			return $results = false;
 		}
 		
-		
-		
 		$query=$tagsHelper->getTagItemsQuery($tagsToMatch, $contentTypes, $includeChildren, $orderByOption, $orderDir, $matchLogic, $languageFilter = 'all', $stateFilter = '0,1');
-		//$query= $tagsHelper->getTagItemsQuery($tagsToMatch, $typesr = null, $includeChildren = false, $orderByOption = 'c.core_title', $orderDir = 'ASC',$anyOrAll = true, $languageFilter = 'all', $stateFilter = '0,1');
 		$db->setQuery($query, 0, $maximum);
-		
-		echo $query;
+
 		$results = $db->loadObjectList();
-		
 
 		foreach ($results as $result)
 		{
