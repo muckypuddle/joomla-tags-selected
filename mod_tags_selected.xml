@@ -44,12 +44,12 @@
 					description="MOD_TAGS_SELECTED_MAX_DESC">
 				</field>
 				
-				<field name="include_children" type="radio" default="0" label="Include Children?" description="Specify whether to include results from child tags of those selected">
+				<field name="include_children" type="radio" default="0" class='btn-group btn-group-yesno' label="Include Children?" description="Specify whether to include results from child tags of those selected">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>
 				
-				<field name="match_logic" type="radio" default="0" label="Include Children?" description="Specify whether results need to match any tag, or all tags">
+				<field name="match_logic" type="radio" default="0" class='btn-group btn-group-yesno' label="Tag Filter Logic" description="Specify whether results need to match any tag, or all tags">
 					<option value="1">Any Tag</option>
 					<option value="0">All Tags</option>
 				</field>
@@ -60,7 +60,7 @@
 					<option value="c.core_modified_time">Modification Date</option>
 				</field>				
 				
-				<field name="order_dir" type="radio" default="ASC" label="Order Direction" description="Select ordering column direction">
+				<field name="order_dir" type="radio" default="ASC" class='btn-group btn-group-yesno'  label="Order Direction" description="Select ordering column direction">
 					<option value="ASC">Ascending</option>
 					<option value="DESC">Descending</option>
 				</field>
