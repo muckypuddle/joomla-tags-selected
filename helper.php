@@ -39,7 +39,7 @@ abstract class ModTagsselectedHelper
 		$matchLogic = !!$params->get('match_logic');
 		$orderByOption = $params->get('order_by_option');
 		$orderDir = $params->get('order_dir');
-			
+		echo $contentTypes;
 		// Strip off any slug data.
 		foreach ($id as $id)
 		{
