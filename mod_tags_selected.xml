@@ -31,36 +31,27 @@
 			<fieldset name="basic">
                 <field name="selected_tags" type="tag" label="JTAG" description="JTAG_DESC" mode="ajax"  multiple="true" />
 				
-				<field name="content_types" type="sql" label="Content Types" description="Limit tagged items to specified content types" query="SELECT type_id AS value, type_title FROM #__content_types" value_field="type_title" multiple="multiple" /> 
+				<field name="content_types" type="sql" label="MOD_TAGS_SELECTED_CONTENT_TYPES_LABEL" description="MOD_TAGS_SELECTED_CONTENT_TYPES_DESC" query="SELECT type_id AS value, type_title FROM #__content_types" value_field="type_title" multiple="multiple" /> 
 				
-				<field
-					name="maximum"
-					type="integer"
-					default="5"
-					first="1"
-					last="20"
-					step="1"
-					label="MOD_TAGS_SELECTED_MAX_LABEL"
-					description="MOD_TAGS_SELECTED_MAX_DESC">
-				</field>
+				<field name="maximum" type="integer" default="5" first="1" last="20" step="1" label="MOD_TAGS_SELECTED_MAX_LABEL" description="MOD_TAGS_SELECTED_MAX_DESC" />
 				
-				<field name="include_children" type="radio" default="0" class='btn-group btn-group-yesno' label="Include Children?" description="Specify whether to include results from child tags of those selected">
+				<field name="include_children" type="radio" default="0" class='btn-group btn-group-yesno' label="MOD_TAGS_SELECTED_INCLUDE_CHILDREN_LABEL" description="MOD_TAGS_SELECTED_INCLUDE_CHILDREN_DESC">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
 				</field>
 				
-				<field name="match_logic" type="radio" default="0" class='btn-group btn-group-yesno' label="Tag Filter Logic" description="Specify whether results need to match any tag, or all tags">
+				<field name="match_logic" type="radio" default="0" class='btn-group btn-group-yesno' label="MOD_TAGS_SELECTED_MATCH_LOGIC_LABEL" description="MOD_TAGS_SELECTED_MATCH_LOGIC_DESC">
 					<option value="1">Any Tag</option>
 					<option value="0">All Tags</option>
 				</field>
 				
-				<field name="order_by_option" type="list" default="c.core_title" label="Order" description="Select column to order by">
+				<field name="order_by_option" type="list" default="c.core_title" label="MOD_TAGS_SELECTED_ORDER_BY_OPTION_LABEL" description="MOD_TAGS_SELECTED_ORDER_BY_OPTION_DESC">
 					<option value="c.core_title">Title</option>
 					<option value="c.core_created_time">Creation Date</option>
 					<option value="c.core_modified_time">Modification Date</option>
 				</field>				
 				
-				<field name="order_dir" type="radio" default="ASC" class='btn-group btn-group-yesno'  label="Order Direction" description="Select ordering column direction">
+				<field name="order_dir" type="radio" default="ASC" class='btn-group btn-group-yesno'  label="MOD_TAGS_SELECTED_ORDER_DIR_LABEL" description="MOD_TAGS_SELECTED_ORDER_DIR_DESC">
 					<option value="ASC">Ascending</option>
 					<option value="DESC">Descending</option>
 				</field>
