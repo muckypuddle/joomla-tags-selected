@@ -31,6 +31,7 @@
 			<fieldset name="basic">
                 <field name="selected_tags" type="tag" label="JTAG" description="JTAG_DESC" mode="ajax"  multiple="true" />
 				
+				<!-- When https://github.com/joomla/joomla-cms/pull/4698 is merged this needs to change to use alias, not ID, i.e. 'SELECT type_alias AS value.....'-->
 				<field name="content_types" type="sql" label="MOD_TAGS_SELECTED_CONTENT_TYPES_LABEL" description="MOD_TAGS_SELECTED_CONTENT_TYPES_DESC" query="SELECT type_id AS value, type_title FROM #__content_types" value_field="type_title" multiple="multiple" /> 
 				
 				<field name="maximum" type="integer" default="5" first="1" last="20" step="1" label="MOD_TAGS_SELECTED_MAX_LABEL" description="MOD_TAGS_SELECTED_MAX_DESC" />
