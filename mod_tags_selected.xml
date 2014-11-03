@@ -34,6 +34,12 @@
 				<!-- When https://github.com/joomla/joomla-cms/pull/4698 is merged this needs to change to use alias, not ID, i.e. 'SELECT type_alias AS value.....'-->
 				<field name="content_types" type="sql" label="MOD_TAGS_SELECTED_CONTENT_TYPES_LABEL" description="MOD_TAGS_SELECTED_CONTENT_TYPES_DESC" query="SELECT type_id AS value, type_title FROM #__content_types" value_field="type_title" multiple="multiple" /> 
 				
+				<field name="state" type="radio" default="1" class='btn-group btn-group-yesno' label="MOD_TAGS_SELECTED_STATE_LABEL" description="MOD_TAGS_SELECTED_STATE_DESC">
+					<option value="1">Published</option>
+					<option value="0">Unpublished</option>
+					<option value="1,0">Both</option>
+				</field>
+				
 				<field name="maximum" type="integer" default="5" first="1" last="20" step="1" label="MOD_TAGS_SELECTED_MAX_LABEL" description="MOD_TAGS_SELECTED_MAX_DESC" />
 				
 				<field name="include_children" type="radio" default="0" class='btn-group btn-group-yesno' label="MOD_TAGS_SELECTED_INCLUDE_CHILDREN_LABEL" description="MOD_TAGS_SELECTED_INCLUDE_CHILDREN_DESC">

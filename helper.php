@@ -39,6 +39,7 @@ abstract class ModTagsselectedHelper
 		$matchLogic = !!$params->get('match_logic');
 		$orderByOption = $params->get('order_by_option');
 		$orderDir = $params->get('order_dir');
+		$stateFilter = $params->get('state');
 
 		// Strip off any slug data.
 		foreach ($id as $id)
@@ -56,7 +57,7 @@ abstract class ModTagsselectedHelper
 			return $results = false;
 		}
 		
-		$query=$tagsHelper->getTagItemsQuery($tagsToMatch, $contentTypes, $includeChildren, $orderByOption, $orderDir, $matchLogic, $languageFilter = 'all', $stateFilter = '0,1');
+		$query=$tagsHelper->getTagItemsQuery($tagsToMatch, $contentTypes, $includeChildren, $orderByOption, $orderDir, $matchLogic, $languageFilter = 'all', $stateFilter);
 		$db->setQuery($query, 0, $maximum);
 
 		$results = $db->loadObjectList();
