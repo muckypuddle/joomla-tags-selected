@@ -29,4 +29,4 @@ Credits
 -------
 Kicked off by [asinducharith](https://github.com/lasinducharith).
 
-Developed by [Mucky Puddle](http://www.muckypuddle.com).
+Developed by [Mucky Puddle](http://www.muckypuddle.com)..
