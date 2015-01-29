@@ -1,6 +1,6 @@
 joomla-tags-selected
 ====================
-Show a list of content items tagged with one or more tags (originally forked from [here](https://github.com/lasinducharith/joomla-tags-selected)).
+Show a list of content items tagged with one or more tags (originally forked from [here](https://github.com/lasinducharith/joomla-tags-selected))..
 
 * Filter content by one or more tags
 * Filter content by one or more content types (article, category, weblink...)
