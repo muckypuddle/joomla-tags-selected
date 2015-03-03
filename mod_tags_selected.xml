@@ -29,10 +29,10 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-                <field name="selected_tags" type="tag" label="JTAG" description="JTAG_DESC" mode="ajax"  multiple="true" />
+                <field name="selected_tags" type="tag" required='true' label="JTAG" description="JTAG_DESC" mode="ajax"  multiple="true" />
 				
 				<!-- When https://github.com/joomla/joomla-cms/pull/4698 is merged this needs to change to use alias, not ID, i.e. 'SELECT type_alias AS value.....'-->
-				<field name="content_types" type="sql" label="MOD_TAGS_SELECTED_CONTENT_TYPES_LABEL" description="MOD_TAGS_SELECTED_CONTENT_TYPES_DESC" query="SELECT type_id AS value, type_title FROM #__content_types" value_field="type_title" multiple="multiple" /> 
+				<field name="content_types" type="sql" required='true' label="MOD_TAGS_SELECTED_CONTENT_TYPES_LABEL" description="MOD_TAGS_SELECTED_CONTENT_TYPES_DESC" query="SELECT type_id AS value, type_title FROM #__content_types" value_field="type_title" multiple="multiple" /> 
 				
 				<field name="state" type="radio" default="1" class='btn-group btn-group-yesno' label="MOD_TAGS_SELECTED_STATE_LABEL" description="MOD_TAGS_SELECTED_STATE_DESC">
 					<option value="1">Published</option>
@@ -63,6 +63,30 @@
 					<option value="DESC">Descending</option>
 				</field>
 			</fieldset>
+			
+            <fieldset name="display" label="MOD_TAGS_SELECTED_DISPLAY_OPTIONS_FIELDSET_LABEL">
+                <field name="show_type" type="radio" default="0" class='btn-group btn-group-yesno' label="MOD_TAGS_SELECTED_SHOW_TYPE_LABEL" description="MOD_TAGS_SELECTED_SHOW_TYPE_DESC">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                
+                <field name="show_author" type="radio" default="0" class='btn-group btn-group-yesno' label="MOD_TAGS_SELECTED_SHOW_AUTHOR_LABEL" description="MOD_TAGS_SELECTED_SHOW_AUTHOR_DESC">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                
+                <field name="show_date" type="radio" default="0" class='btn-group btn-group-yesno' label="MOD_TAGS_SELECTED_SHOW_DATE_LABEL" description="MOD_TAGS_SELECTED_SHOW_DATE_DESC">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>	
+                
+                <field name="date_option" type="list" default="core_publish_up" label="MOD_TAGS_SELECTED_DATE_OPTION_LABEL" description="MOD_TAGS_SELECTED_DATE_OPTION_DESC">
+                    <option value="core_publish_up">Publish Date</option>
+                    <option value="core_created_time">Creation Date</option>
+                    <option value="core_modified_time">Modification Date</option>
+                </field>    
+            </fieldset>
+            
 			<fieldset
 				name="advanced">
 				<field

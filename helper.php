@@ -70,4 +70,17 @@ abstract class ModTagsselectedHelper
 
 		return $results;	
 	}
+	
+	public static function getTypeTitlesByIds($ids){
+		
+		$ids = "(".implode(",", $ids).")";
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query->select('type_title');
+		$query->from($db->quoteName('#__content_types'));
+		$query->where($db->quoteName('type_id')." IN ".$ids);
+		$db->setQuery($query);
+		$result = $db->loadColumn();
+		return $result;
+	}
 }

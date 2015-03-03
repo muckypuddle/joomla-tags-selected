@@ -12,6 +12,19 @@ defined('_JEXEC') or die;
 ?>
 <?php JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/route.php'); ?>
 <div class="tagsselected<?php echo $moduleclass_sfx; ?>">
+<?php if ($params->get('show_type', 1)):?>
+	<?php if(count($typeTitles) == 1): ?>
+		<h3><?php echo $typeTitles[0]; ?></h3>
+	<?php else: ?>
+		<h3><?php echo JText::_('MOD_TAGS_SELECTED_CONTENT_TYPES_LABEL'); ?></h3>
+		<ul>
+		<?php foreach($typeTitles as $typeTitle):?>
+			<li><?php echo $typeTitle; ?></li>
+		<?php endforeach; ?>
+		</ul>
+	<?php endif;?>
+<?php endif;?>
+
 <?php if ($list) : ?>
 	<?php foreach ($list as $i => $item) : ?>
 		<h4 class='uk-margin-top-remove'>
@@ -22,9 +35,23 @@ defined('_JEXEC') or die;
 				endif; ?>
 			</a>
 		</h4>
+		<?php if ($params->get('show_date', 0) || $params->get('show_author', 0)): ?>
+		<div class='meta'>
+			<?php
+			$dateOption = $params->get('date_option'); 
+			$date = $item->{$dateOption};
+			$author = $item->author;
+			if ($params->get('show_date', 0) && !empty($date)) : ?>
+			<span class='date'><?php echo date(JText::_('DATE_FORMAT_LC3'), strtotime($date)); ?></span>
+			<?php endif;
+			if ($params->get('show_author', 0) && !empty($author)) : ?>
+			<span class='author'><?php echo $author; ?></span>
+			<?php endif; ?>
+		</div>
+		<?php endif; ?>
 		<?php echo $item->core_body; ?>
 	<?php endforeach; ?>
 <?php else : ?>
-	<span><?php echo JText::_('MOD_TAGS_SIMILAR_NO_MATCHING_TAGS'); ?></span>
+	<span><?php echo JText::_('MOD_TAGS_SELECTED_NO_TAGGED_ITEMS'); ?></span>
 <?php endif; ?>
 </div>

@@ -20,11 +20,7 @@ $cacheparams->methodparams = $params;
 $cacheparams->modeparams = array('id' => 'array', 'Itemid' => 'int');
 
 $list = JModuleHelper::moduleCache($module, $params, $cacheparams);
-
-if (!count($list))
-{
-	return;
-}
+$typeTitles = ModTagsselectedHelper::getTypeTitlesByIds($params->get('content_types'));
 
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
