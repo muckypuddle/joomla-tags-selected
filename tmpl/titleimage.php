@@ -41,7 +41,7 @@ defined('_JEXEC') or die;
 			<?php
 				$image = json_decode($item->core_images)->image_intro;
 				if ($image != '') {
-					echo "<p><img src='$image'/></p>";
+					echo "<p><img src='$image' alt='$images->image_intro_alt'/></p>";
 				}
     		?>
 		</div>
