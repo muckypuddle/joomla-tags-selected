@@ -39,7 +39,7 @@ Layouts
 -------
 * **default.php**: Items shown in an unordered list
 * **readmore.php**: Items shown with a header (the item title) and its content
-* **readmore.php**: Items shown with a header (the item title) and its intro image
+* **titleimage.php**: Items shown with a header (the item title) and its intro image
 
 Credits
 -------
