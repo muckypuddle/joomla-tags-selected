@@ -29,19 +29,19 @@ defined('_JEXEC') or die;
 	
 <?php if ($list) : ?>
 	<?php foreach ($list as $i => $item) : ?>
-		<div class="tags_selected">
-			<p>
+		<div class="single_tagsselected">
+			<div>
 				<?php $item->route = new JHelperRoute; ?>
 				<a href="<?php echo JRoute::_(TagsHelperRoute::getItemRoute($item->content_item_id, $item->core_alias, $item->core_catid, $item->core_language, $item->type_alias, $item->router)); ?>">
 					<?php if (!empty($item->core_title)) {
 						echo htmlspecialchars($item->core_title);
 					} ?>
 				</a>
-			</p>
+			</div>
 			<?php
 				$image = json_decode($item->core_images)->image_intro;
 				if ($image != '') {
-					echo "<p><img src='$image' alt='$images->image_intro_alt'/></p>";
+					echo "<div><img src='$image' alt='$images->image_intro_alt'/></div>";
 				}
     		?>
 		</div>
