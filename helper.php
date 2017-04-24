@@ -51,11 +51,14 @@ abstract class ModTagsselectedHelper
 			}
 		}
 
-		$tagsToMatch = $selectedTags;
-		if (!$tagsToMatch || is_null($tagsToMatch))
+		if (!$selectedTags || is_null($selectedTags))
 		{
 			return $results = false;
 		}
+
+		// Convert $tagsToMatch to string to work around a bug in \JHelperTags::getTagItemsQuery()
+		// When passing in an array the $matchLogic setting does not work. Passing in a string fixes this
+		$tagsToMatch = join(',',$selectedTags);
 		
 		$query=$tagsHelper->getTagItemsQuery($tagsToMatch, $contentTypes, $includeChildren, $orderByOption, $orderDir, $matchLogic, $languageFilter = 'all', $stateFilter);
 		$db->setQuery($query, 0, $maximum);
